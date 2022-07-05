@@ -1,0 +1,50 @@
+@charset 'utf-8';
+
+@use "../../../../core/setting" as *;
+@use "../../../../mixin/media-queries" as *;
+@use "../../../../mixin/space-reset" as *;
+@use "../../../../mixin/hover" as *;
+
+.top-bnr-list {
+  $_this: &;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+
+  &__link {
+    display: block;
+    position: relative;
+    padding-left: 24px;
+    transition: color .2s;
+    color: $color-font-base;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background-image: url("/assets/img/ico-arrow.svg");
+      top: .5rem;
+      left: 0;
+      transform: translateX(0);
+      transition: transform .2s;
+    }
+
+    @include hover() {
+      color: $color-font-link;
+      text-decoration: none;
+
+      &::before {
+        transform: translateX(3px);
+      }
+    }
+  }
+
+  @include rwd(pc) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 80px;
+  }
+}

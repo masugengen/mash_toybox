@@ -1,0 +1,21 @@
+@charset 'utf-8';
+
+@use "../../../../core/setting" as *;
+@use "../../../../mixin/media-queries" as *;
+@use "../../../../mixin/space-reset" as *;
+@use "../../../../mixin/hover" as *;
+
+.top-carousel-link {
+  $_this: &;
+
+  transition: opacity .2s;
+
+  &__img {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  @include hover() {
+    opacity: .7;
+  }
+}

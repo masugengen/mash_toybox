@@ -1,0 +1,62 @@
+@charset 'utf-8';
+
+@use "../../../../core/setting" as *;
+@use "../../../../mixin/media-queries" as *;
+@use "../../../../mixin/space-reset" as *;
+@use "../../../../mixin/hover" as *;
+
+.top-bnr-layout {
+  $_this: &;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__col {
+    display: flex;
+    justify-content: center;
+
+
+    &:not(:first-child) {
+      justify-content: flex-start;
+      padding-top: 20px;
+      margin-top: 30px;
+      border-top: 1px solid $color-gray;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    text-align: center;
+    transition: opacity .2s;
+
+    @include hover() {
+      opacity: .7;
+    }
+  }
+
+  @include rwd(pc) {
+    &__inner {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &__col {
+      &:first-child {
+        flex-shrink: 0;
+      }
+
+      &:not(:first-child) {
+        margin-top: 0;
+        margin-left: 80px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        padding-left: 80px;
+        border-top: 0;
+        border-left: 1px solid $color-gray;
+        flex-direction: column;
+      }
+    }
+  }
+}

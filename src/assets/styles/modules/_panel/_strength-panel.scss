@@ -1,0 +1,82 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+@use "../../mixin/hover" as *;
+
+.strength-panel {
+  $_this: &;
+
+  margin-bottom: 20px;
+
+  &__inner {
+    display: grid;
+    row-gap: 30px;
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: column-reverse;
+    row-gap: 10px;
+    color: $color-font-base;
+    transition: opacity .2s;
+
+    @include hover() {
+      text-decoration: none;
+      opacity: .7;
+
+    }
+  }
+
+  &__head {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+
+    @include space-reset;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 50%;
+      left: 0;
+      bottom: 50%;
+      background-image: url("/assets/image/ico-arrow.svg");
+      transform: translateY(-50%);
+    }
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__txt {
+    margin-top: auto;
+    padding-left: 25px;
+    font-weight: $font-weight-bold;
+  }
+
+  @include rwd(pc) {
+    @for $i from 1 through 4 {
+      &[data-col-wide="#{$i}"] > #{$_this}__inner {
+        grid-template-columns: repeat($i, auto);
+        justify-content: center;
+        gap: 30px;
+      }
+    }
+
+    &__panel {
+      row-gap: 5px;
+    }
+
+    &__txt {
+      font-size: 1.8rem;
+    }
+  }
+}

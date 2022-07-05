@@ -1,0 +1,5 @@
+last 1 version
+not IE 11
+safari >= 13
+iOS >= 12
+Android >= 10

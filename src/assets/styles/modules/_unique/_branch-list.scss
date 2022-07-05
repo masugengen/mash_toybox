@@ -1,0 +1,29 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+@use "../../mixin/hover" as *;
+
+.branch-list {
+  &__item {
+    padding: 10px 0;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-gray;
+    }
+  }
+
+  & + .list-notice {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+}

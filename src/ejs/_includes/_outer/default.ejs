@@ -1,0 +1,42 @@
+<%# サイト情報 %>
+<% const SITE_NAME = 'サイト名が入ります。' %>
+<% const SITE_DOMAIN = 'example' %>
+<% const OGIMAGE_PATH = 'assets/img/ogimage-' %>
+
+<%# OG：カノニカル取得用 %>
+<% const metaPath = page.outputPath.replace(/^public\//g, '').replace('index.html', '') %>
+<% const metaFullPath = page.outputPath.replace(/^public\//g, '') %>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= PAGE_TITLE %><% if (!FIFTH_DIRECTORY_NAME == '') {%>｜<%= FIFTH_DIRECTORY_NAME %><% } %><% if (!FOURTH_DIRECTORY_NAME == '') {%>｜<%= FOURTH_DIRECTORY_NAME %><% } %><% if (!THIRD_DIRECTORY_NAME == '') {%>｜<%= THIRD_DIRECTORY_NAME %><% } %><% if (!SECOND_DIRECTORY_NAME == '') {%>｜<%= SECOND_DIRECTORY_NAME %><% } %>｜<%= SITE_NAME %></title>
+<meta name="description" content="<%= META_DESCRIPTION %>">
+
+<!-- ======================== ogp ======================== -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="<%= SITE_NAME %>">
+<meta property="og:url" content="<%= SITE_DOMAIN %><%= metaFullPath %>">
+<meta property="og:image" content="<%= SITE_DOMAIN %><%= OGIMAGE_PATH %><%= OGIMAGE %>">
+<meta property="og:title" content="<%= PAGE_TITLE %><% if (!FIFTH_DIRECTORY_NAME == '') {%>｜<%= FIFTH_DIRECTORY_NAME %><% } %><% if (!FOURTH_DIRECTORY_NAME == '') {%>｜<%= FOURTH_DIRECTORY_NAME %><% } %><% if (!THIRD_DIRECTORY_NAME == '') {%>｜<%= THIRD_DIRECTORY_NAME %><% } %><% if (!SECOND_DIRECTORY_NAME == '') {%>｜<%= SECOND_DIRECTORY_NAME %><% } %>｜<%= SITE_NAME %>">
+<meta property="og:description" content="<%= META_DESCRIPTION %>">
+<meta property="og:locale" content="ja_JP">
+<!-- ======================== ogp ======================== -->
+
+<!-- ======================== canonical ======================== -->
+<link rel="canonical" href="<%= SITE_DOMAIN %><%= metaPath %>">
+<!-- ======================== canonical ======================== -->
+
+<!-- ======================== resource ======================== -->
+<%- include('/_resource/_head'); %>
+<!-- ======================== resource ======================== -->
+</head>
+<body id="top">
+
+<%- content -%>
+
+</body>
+</html>

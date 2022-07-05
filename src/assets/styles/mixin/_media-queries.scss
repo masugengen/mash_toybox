@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+@use "../core/setting" as *;
+
+@mixin rwd ($media: tablet, $area: below) {
+    @if $area == below {
+        @if $media == tablet {
+            @media only screen and (min-width: $mq-width-m + 1px) { @content; }
+        } @else if $media == pc {
+            @media only screen and (min-width: $mq-width-s + 1px) { @content; }
+        } @else {
+            @media only screen and (min-width: $mq-width-m + 1px) { @content; }
+        }
+    } @else if $area == above {
+        @if $media == sp {
+            @media only screen and (max-width: $mq-width-m) { @content; }
+        } @else if $media == tablet {
+            @media only screen and (max-width: $mq-width-s) { @content; }
+        } @else {
+            @media only screen and (max-width: $mq-width-m) { @content; }
+        }
+    }
+}

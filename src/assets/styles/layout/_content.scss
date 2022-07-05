@@ -1,0 +1,51 @@
+@charset 'utf-8';
+
+@use "../core/setting" as *;
+@use "../mixin/media-queries" as *;
+@use "../mixin/space-reset" as *;
+@use "../mixin/hover" as *;
+
+
+.content {
+  margin-top: 40px;
+  padding: 0 15px;
+
+  &__primary,
+  &__main {
+    @include space-reset;
+
+    & > .main {
+      @include space-reset;
+    }
+  }
+
+  &__secondary {
+    margin-top: 103px;
+  }
+
+  @include rwd(pc) {
+    display: flex;
+    max-width: $content-width;
+    width: 100%;
+    margin: 60px auto 0;
+
+    &__primary {
+      max-width: calc(100% - 300px); // サイドナビ分の幅を除外
+      width: 100%;
+    }
+
+    &__main {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    &__secondary {
+      flex-shrink: 0;
+      max-width: 260px;
+      width: 100%;
+      margin-left: 40px;
+      margin-top: 0;
+    }
+  }
+}
+

@@ -1,0 +1,33 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+
+.list-desc {
+  $_this: &;
+
+  margin-bottom: 40px;
+
+  &__list,
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__list {
+    row-gap: 20px;
+  }
+
+  &__item {
+    row-gap: 10px;
+  }
+
+  &__term {
+    font-weight: $font-weight-bold;
+  }
+
+  &__content {
+    @include space-reset;
+  }
+}

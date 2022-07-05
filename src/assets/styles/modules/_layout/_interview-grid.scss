@@ -1,0 +1,47 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+@use "../../mixin/hover" as *;
+
+.interview-grid {
+  $_this: &;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &[data-col-narrow="1"] {
+    #{$_this}__inner {
+      margin-top: -20px;
+    }
+
+    #{$_this}__col {
+      max-width: 100%;
+      padding-top: 20px;
+    }
+  }
+
+  @include rwd(pc) {
+    &__inner {
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+
+    &[data-col-wide="2"] {
+      #{$_this}__inner {
+        margin-top: -30px;
+        margin-left: -30px;
+      }
+
+      #{$_this}__col {
+        max-width: calc(100% / 2);
+        width: 100%;
+        padding-top: 30px;
+        padding-left: 30px;
+      }
+    }
+  }
+}

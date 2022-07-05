@@ -1,0 +1,39 @@
+@charset 'utf-8';
+
+@use "../../mixin/media-queries" as *;
+
+.media-col {
+  margin-bottom: 20px;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 23px;
+  }
+
+  &__content {
+    display: table;
+  }
+
+  &__caption {
+    display: table-caption;
+    caption-side: bottom;
+    margin-top: 5px;
+  }
+
+  &__caption-txt {
+    margin-bottom: 0;
+    font-size: 1.4rem;
+    line-height: 1.25;
+    text-align: center;
+  }
+
+  @include rwd(pc) {
+    margin-bottom: 30px;
+
+    &__list {
+      gap: 30px;
+    }
+  }
+}

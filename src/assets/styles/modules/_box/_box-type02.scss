@@ -1,0 +1,54 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+
+.box-type02 {
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  &__head {
+    background-color: $color-main-red;
+    padding: 15px 20px;
+
+    @include space-reset;
+  }
+
+  &__hdg {
+    & > b {
+      color: $color-white;
+      font-size: 1.8rem;
+      text-align: center;
+      display: block;
+    }
+  }
+
+  &__body {
+    border: 1px solid $color-gray;
+    border-top: 0;
+    padding: 20px 20px;
+  }
+
+  &__content {
+    @include space-reset;
+  }
+
+  @include rwd(pc) {
+    margin-bottom: 60px;
+
+    &__head {
+      padding: 10px 20px ;
+    }
+
+    &__body {
+      padding: 30px;
+    }
+
+    &__hdg {
+      & > b {
+        font-size: 2.2rem;
+      }
+    }
+  }
+}

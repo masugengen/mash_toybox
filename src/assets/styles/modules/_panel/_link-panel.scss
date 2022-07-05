@@ -1,0 +1,119 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+@use "../../mixin/hover" as *;
+
+.link-panel {
+  $_this: &;
+
+  margin-bottom: 20px;
+
+  &__inner {
+    display: grid;
+    row-gap: 20px;
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: $color-gray-02;
+    color: $color-font-base;
+    transition: opacity .2s;
+
+    @include hover() {
+      text-decoration: none;
+      opacity: .7;
+    }
+
+    &--top-red-border {
+      border-top: 4px solid $color-main-red;
+    }
+  }
+
+  &__head {
+    position: relative;
+    padding: 15px 36px 20px 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @include space-reset;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 50%;
+      right: 15px;
+      bottom: 50%;
+      background-image: url("/assets/image/ico-arrow.svg");
+      transform: translateY(-50%);
+    }
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__hdg {
+    margin-bottom: 5px;
+    font-weight: $font-weight-bold;
+
+    &--type02 {
+      display: flex;
+      column-gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    & > b {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__label {
+    background-color: $color-main-red;
+    color: $color-white;
+    font-size: 1.4rem;
+    display: flex;
+    padding: 1px 5px;
+    flex-shrink: 0;
+  }
+
+  &__txt {
+    font-size: 1.4rem;
+  }
+
+  @include rwd(pc) {
+    margin-bottom: 60px;
+
+    @for $i from 1 through 4 {
+      &[data-col-wide="#{$i}"] > #{$_this}__inner {
+        grid-template-columns: repeat($i, 1fr);
+        gap: 30px;
+      }
+    }
+
+    &__head {
+      padding: 15px 41px 20px 15px;
+    }
+
+    &__hdg {
+      font-size: 1.8rem;
+
+      &--type02 {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__label {
+      padding: 3px 10px;
+      font-size: 1.6rem;
+    }
+  }
+}

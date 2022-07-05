@@ -1,0 +1,97 @@
+@charset 'utf-8';
+
+@use "../../../../core/setting" as *;
+@use "../../../../mixin/media-queries" as *;
+@use "../../../../mixin/space-reset" as *;
+@use "../../../../mixin/hover" as *;
+
+.top-topics-list {
+  $_this: &;
+
+  margin-bottom: 40px;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+  }
+
+  &__link {
+    position: relative;
+    padding: 15px 16px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: $color-white;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      transition: opacity .2s;
+    }
+
+    @include hover() {
+      text-decoration: none;
+
+      &::before {
+        opacity: .8;
+      }
+
+      #{$_this}__txt {
+        color: $color-font-link;
+        opacity: 1;
+
+        &::before {
+          transform: translateX(3px);
+        }
+      }
+    }
+  }
+
+  &__date {
+    color: $color-darkgray;
+  }
+
+  &__txt {
+    display: inline-block;
+    padding-left: 21px;
+    transition: color .2s;
+    color: $color-font-base;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background-image: url("/assets/img/ico-arrow.svg");
+      top: .4rem;
+      left: 0;
+      transform: translateX(0);
+      transition: transform .2s;
+    }
+  }
+
+  @include rwd(pc) {
+    margin-bottom: 50px;
+
+    &__link {
+      flex-direction: row;
+      align-items: flex-start;
+      column-gap: 20px;
+      padding: 20px 30px;
+    }
+
+    &__date {
+      flex-shrink: 0;
+    }
+  }
+}

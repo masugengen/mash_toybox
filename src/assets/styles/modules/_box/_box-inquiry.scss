@@ -1,0 +1,113 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/hover" as *;
+
+.box-inquiry {
+  $_this: &;
+
+  margin-bottom: 40px;
+  padding: 20px 15px;
+  border: 1px solid $color-gray;
+
+  &__lede {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  &__lede-txt {
+    font-size: 1.8rem;
+  }
+
+  &__address {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+
+    @include hover {
+      text-decoration: none;
+    }
+
+    &#{$_this}__address--mail {
+      column-gap: 5px;
+      margin-top: 10px;
+    }
+
+    &#{$_this}__address--fax {
+      column-gap: 5px;
+    }
+  }
+
+  &__address-txt {
+    color: $color-font-base;
+    font-size: 3.2rem;
+    font-weight: $font-weight-bold;
+
+    #{$_this}__address#{$_this}__address--mail & {
+      font-size: 2.4rem;
+      word-break: break-all;
+    }
+  }
+
+  &__content-body {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid $color-gray;
+  }
+
+  &__txt {
+    margin-top: 6px;
+    text-align: center;
+  }
+
+
+  &__txt-item {
+    margin-bottom: 0;
+    font-size: 1.4rem;
+  }
+
+  @include rwd(tablet) {
+    padding: 40px;
+
+    &__lede {
+      margin-bottom: 20px;
+    }
+
+    &__lede-txt {
+      font-size: 2.2rem;
+    }
+
+    &__content {
+      display: flex;
+      justify-content: center;
+      column-gap: 22px;
+    }
+
+    &__content-body {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left: 20px;
+      padding-top: 0;
+      border-top: 0;
+      border-left: 1px solid $color-gray;
+    }
+
+    &__address {
+      &#{$_this}__address--mail {
+        margin-top: 0;
+      }
+    }
+
+    &__address-txt {
+      #{$_this}__address#{$_this}__address--mail & {
+        font-size: 3.2rem;
+      }
+    }
+
+    &__txt {
+      margin-top: 0px;
+    }
+  }
+}

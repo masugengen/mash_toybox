@@ -1,0 +1,32 @@
+@charset 'utf-8';
+
+@use "../../../../core/setting" as *;
+@use "../../../../mixin/media-queries" as *;
+@use "../../../../mixin/space-reset" as *;
+@use "../../../../mixin/hover" as *;
+
+.top-carousel-pagination {
+  $_this: &;
+
+  display: flex;
+  align-items: center;
+
+  &__bullet {
+    width: 10px;
+    height: 10px;
+    background-color: $color-white;
+    border-radius: 50%;
+    transition: width .2s, height .2s, background-color .2s, border .2s;
+
+    &:not(:first-child) {
+      margin-left: 15px;
+    }
+  }
+
+  &__active {
+    width: 12px;
+    height: 12px;
+    background-color: $color-main-red;
+    border: 2px solid $color-white;
+  }
+}

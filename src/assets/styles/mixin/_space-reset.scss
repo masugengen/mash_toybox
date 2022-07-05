@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+@mixin space-reset() {
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}

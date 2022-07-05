@@ -1,0 +1,153 @@
+@charset "utf-8";
+
+@use "./setting" as *;
+@use "../mixin/media-queries" as *;
+@use "../mixin/space-reset" as *;
+@use "../mixin/hover" as *;
+
+/* ----------------------------------------------------------------
+    base
+----------------------------------------------------------------- */
+
+html {
+  font-size: 62.5%;
+  backface-visibility: hidden;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  margin: auto;
+  overflow-x: hidden;
+  color: $color-font-base;
+  font-size: $font-size-sp;
+  line-height: $line-height;
+  font-family: $font-family;
+  font-weight: $font-weight-light;
+
+  &.is-backdrop {
+    &::after {
+      pointer-events: auto;
+      opacity: .34;
+    }
+  }
+
+  &.is-scrollLock {
+    position: fixed;
+    width: 100%;
+  }
+
+  &::after {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    pointer-events: none;
+    content: "";
+    background-color: #000;
+    opacity: 0;
+    transition: opacity .2s;
+  }
+
+  @include rwd(pc) {
+    font-size: $font-size;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+b,
+th {
+  font-weight: $font-weight-bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p {
+  box-sizing: border-box;
+}
+
+a {
+  color: $color-font-link;
+  text-decoration: none;
+
+  @include hover {
+    text-decoration: underline;
+  }
+}
+
+p {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+
+  > a {
+    color: $color-font-link;
+    text-decoration: underline;
+    transition: .2s;
+    opacity: 1;
+
+    @include hover() {
+      opacity: .7;
+      text-decoration: none;
+    }
+  }
+}
+
+em {
+  font-weight: $font-weight-bold;
+  font-style: normal;
+}
+
+strong {
+  font-weight: $font-weight-bold;
+  color: $color-red;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+table {
+  border-collapse: collapse;
+
+  tr {
+    vertical-align: top;
+  }
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+}
+
+abbr {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+dfn {
+  display: block;
+  font-style: normal;
+}

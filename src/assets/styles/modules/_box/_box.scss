@@ -1,0 +1,19 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+
+.box {
+  margin-bottom: 40px;
+  padding: 20px 15px;
+  border: 1px solid $color-gray;
+
+  &__content {
+    @include space-reset;
+  }
+
+  @include rwd(pc) {
+    padding: 40px;
+  }
+}

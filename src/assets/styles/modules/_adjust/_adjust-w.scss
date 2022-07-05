@@ -1,0 +1,12 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+@use "../../mixin/hover" as *;
+
+@for $i from 0 through 100 {
+  .adjust-w-#{$i * 1} {
+    width: $i * 1% !important;
+  }
+}

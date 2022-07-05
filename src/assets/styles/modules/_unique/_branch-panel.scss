@@ -1,0 +1,66 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+@use "../../mixin/hover" as *;
+
+.branch-panel {
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    row-gap: 20px;
+  }
+
+  &__hdg {
+    grid-row: 1;
+    font-size: 2.4rem;
+    line-height: 1.25;
+    color: #000;
+    font-weight: $font-weight-bold;
+    padding-bottom: 11px;
+    border-bottom: 3px solid $color-main-red;
+  }
+
+  &__head {
+    grid-row: 3;
+  }
+
+  &__body {
+    grid-row: 2;
+
+  }
+
+  @include rwd(pc) {
+    &__wrap {
+      row-gap: 60px;
+    }
+
+    &__item {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 30px;
+    }
+
+    &__hdg {
+      grid-column: 1 / 3;
+      grid-row: 1 / 1;
+    }
+
+    &__head {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+
+    &__body {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+  }
+}

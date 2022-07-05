@@ -1,0 +1,10 @@
+html:
+    vnu: https://av.mitsue.com
+    include: 'public/**/*.html'
+    ignore:
+      - '**/node_modules/**'
+css:
+    vnu: https://av.mitsue.com
+    include: 'public/**/*.css'
+    ignore:
+      - './**/node_modules/**'

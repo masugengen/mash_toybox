@@ -1,0 +1,76 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+@use "../../mixin/hover" as *;
+
+.anc-link-list {
+  $_this: &;
+
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  [class^="hdg"] + & {
+    margin-top: 0;
+  }
+
+  &__list {
+    display: grid;
+    gap: 2px;
+
+    #{$_this}[data-col-narrow="2"] & {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    min-height: 58px;
+    padding: 10px 35px 10px 10px;
+    color: $color-font-base;
+    background-color: $color-gray-02;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1.25;
+    transition: opacity .2s;
+
+    &::after {
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 10px;
+      content: "";
+      width: 16px;
+      height: 16px;
+      background-image: url("/assets/img/ico-arrow-anc.svg");
+    }
+
+    @include hover {
+      text-decoration: none;
+      opacity: .7;
+    }
+  }
+
+  @include rwd(tablet){
+    $_min-col: 2;
+    $_max-col: 5;
+
+    &__list {
+      @for $i from $_min-col through $_max-col {
+        #{$_this}[data-col-wide="#{$i}"] & {
+          grid-template-columns: repeat($i, 1fr);
+        }
+      }
+    }
+  }
+
+  @include rwd(pc){
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+}

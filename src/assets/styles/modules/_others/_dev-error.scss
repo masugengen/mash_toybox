@@ -1,0 +1,13 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+@use "../../mixin/hover" as *;
+
+.dev-error {
+  background: #ff2121;
+  color: $color-white;
+  font-weight: $font-weight-bold;
+  padding: 5px;
+}

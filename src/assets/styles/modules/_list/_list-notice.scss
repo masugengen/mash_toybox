@@ -1,0 +1,36 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+
+.list-notice {
+  margin-bottom: 30px;
+
+  &__item {
+    display: flex;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__mark {
+    font-size: 1.4rem;
+    min-width: 1.5rem;
+  }
+
+  &__content {
+    margin-left: 5px;
+
+    & > * {
+      margin-bottom: 10px;
+    }
+
+    @include space-reset;
+  }
+
+  &__txt {
+    font-size: 1.4rem;
+  }
+}

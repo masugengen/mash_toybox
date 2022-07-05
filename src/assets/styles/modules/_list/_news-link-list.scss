@@ -1,0 +1,75 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+@use "../../mixin/hover" as *;
+
+.news-link-list {
+  $_this: &;
+
+  margin-bottom: 40px;
+
+  &__item {
+    padding: 15px 0;
+    border-top: 1px solid $color-gray;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    &:not(:first-child) {
+      border-bottom: 1px solid $color-gray;
+    }
+
+    @include space-reset;
+  }
+
+  &__date {
+    color: $color-darkgray;
+    font-weight: $font-weight-light;
+    flex-shrink: 0;
+  }
+
+  &__link {
+    display: inline-block;
+    position: relative;
+    padding-left: 21px;
+    transition: color .2s;
+    color: $color-font-base;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background-image: url("/assets/img/ico-arrow.svg");
+      top: .2rem;
+      left: 0;
+      transform: translateX(0);
+      transition: transform .2s;
+    }
+
+    @include hover() {
+      color: $color-font-link;
+      text-decoration: none;
+
+      &::before {
+        transform: translateX(3px);
+      }
+    }
+  }
+
+  @include rwd(pc) {
+    &__item {
+      flex-direction: row;
+      column-gap: 20px;
+    }
+
+    &__link {
+      &::before {
+        top: .35rem;
+      }
+    }
+  }
+}

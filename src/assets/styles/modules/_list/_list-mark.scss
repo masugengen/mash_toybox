@@ -1,0 +1,44 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+
+.list-mark {
+  $_this: &;
+
+  margin-bottom: 30px;
+
+  &__item {
+    display: flex;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__mark {
+    min-width: 3rem;
+  }
+
+  &__content {
+    margin-left: 3px;
+
+    & > * {
+      margin-bottom: 10px;
+    }
+
+    @include space-reset;
+
+    & > #{$_this} {
+      #{$_this}__mark,
+      #{$_this}__txt {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  &__txt {
+    font-size: 1.6rem;
+  }
+}

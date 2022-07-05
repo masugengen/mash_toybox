@@ -1,0 +1,32 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+@use "../../mixin/hover" as *;
+
+.adjust-align-left {
+  text-align: left;
+}
+
+.adjust-align-center {
+  text-align: center;
+}
+
+.adjust-align-right {
+  text-align: right;
+}
+
+.media {
+  &.adjust-align-left {
+      align-items: flex-start;
+  }
+
+  &.adjust-align-center {
+    align-items: center;
+  }
+
+  &.adjust-align-right {
+    align-items: flex-end;
+  }
+}

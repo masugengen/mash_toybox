@@ -1,0 +1,75 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+
+.hdg-l2-mark {
+  $_this: &;
+
+  margin-top: 40px;
+  margin-bottom: 20px;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid $color-main-red;
+  }
+
+  &__mark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 40px;
+    height: 40px;
+    background-color: $color-main-red;
+    font-size: 1.8rem;
+    font-weight: $font-weight-light;
+    color: $color-white;
+  }
+
+  &__txt {
+    margin-right: 10px;
+    line-height: 1.25;
+    font-size: 2.4rem;
+    font-weight: $font-weight-bold;
+  }
+
+  &__date {
+    position: relative;
+    top: -4px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    border: 1px solid $color-gray;
+    line-height: 1.25;
+    font-size: 1.4rem;
+    font-weight: $font-weight-light;
+  }
+
+  @include rwd(pc) {
+    margin-top: 60px;
+
+    &__inner {
+      column-gap: 15px;
+      padding-bottom: 15px;
+    }
+
+    &__mark {
+      font-size: 2.2rem;
+      max-width: 45px;
+      height: 45px;
+    }
+
+    &__txt {
+      font-size: 3.2rem;
+    }
+
+    &__date {
+      top: -6px;
+    }
+  }
+}

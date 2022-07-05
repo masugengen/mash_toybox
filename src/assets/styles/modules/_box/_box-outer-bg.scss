@@ -1,0 +1,46 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+
+.box-outer-bg {
+  position: relative;
+
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  &__content {
+    @include space-reset;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 200vw;
+    height: 100%;
+    left: -50vw;
+    top: 0;
+  }
+
+  &::before {
+    background-color: #FC9999;
+    z-index: -2;
+  }
+
+  &::after {
+    background: repeating-linear-gradient( 0deg,#FFEBEB 0px 1px,	transparent 1px 2px), repeating-linear-gradient( 90deg,#FFEBEB 0px 1px,	transparent 1px 2px);
+    z-index: -1;
+  }
+
+  @include rwd(pc) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    margin-top: 35px;
+    margin-bottom: 80px;
+  }
+}

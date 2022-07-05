@@ -1,0 +1,75 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+@use "../../mixin/hover" as *;
+
+.link-list {
+  $_this: &;
+
+  margin-bottom: 30px;
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    @include space-reset;
+
+    & > #{$_this} {
+      margin-top: 10px;
+      margin-left: 25px;
+      margin-bottom: 10px;
+
+      #{$_this}__link {
+        font-size: 1.4rem;
+        padding-left: 14px;
+
+        &::before {
+          width: 8px;
+          height: 8px;
+          background-image: url("/assets/img/ico-arrow-side.svg");
+          background-size: contain;
+          top: .8rem;
+        }
+      }
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    position: relative;
+    padding-left: 21px;
+    transition: color .2s;
+    color: $color-font-base;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background-image: url("/assets/img/ico-arrow.svg");
+      top: .5rem;
+      left: 0;
+      transform: translateX(0);
+      transition: transform .2s;
+    }
+
+    @include hover() {
+      color: $color-font-link;
+      text-decoration: none;
+
+      &::before {
+        transform: translateX(3px);
+      }
+
+      .icon {
+        &__path {
+          fill: $color-font-link;
+        }
+      }
+    }
+  }
+}

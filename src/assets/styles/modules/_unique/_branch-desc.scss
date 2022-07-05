@@ -1,0 +1,27 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+@use "../../mixin/hover" as *;
+
+.branch-desc {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid $color-gray;
+
+  &__term {
+    color: #000;
+    font-size: 1.8rem;
+    line-height: 1.25;
+    font-weight: $font-weight-bold;
+  }
+
+  &__desc {
+    margin-top: 10px;
+  }
+
+  &__content {
+    @include space-reset;
+  }
+}

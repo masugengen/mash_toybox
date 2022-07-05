@@ -1,0 +1,61 @@
+@charset 'utf-8';
+
+@use "../../../../core/setting" as *;
+@use "../../../../mixin/media-queries" as *;
+@use "../../../../mixin/space-reset" as *;
+@use "../../../../mixin/hover" as *;
+
+.top-carousel-playbtn {
+  $_this: &;
+
+  display: flex;
+
+  &__btn {
+    width: 10px;
+    height: 16px;
+    overflow: hidden;
+    position: relative;
+
+    &-txt {
+      position: absolute;
+      left: -300vw;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 3px;
+      height: 16px;
+      top: 0;
+      background: $color-white;
+    }
+
+    &::before {
+      left: 0;
+      transition: opacity .2s;
+    }
+
+    &::after {
+      right: 0;
+      border-style: hidden;
+      border-width: 8px 0 8px 10px;
+      border-color: transparent transparent transparent #ffffff;
+      transition: width .2s, height .2s, background-color .2s, border-style .2s;
+    }
+
+    &.is-carousel-nowstop {
+      &::before {
+        opacity: 0;
+      }
+
+      &::after {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        background-color: transparent;
+      }
+    }
+  }
+}

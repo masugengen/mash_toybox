@@ -1,0 +1,133 @@
+@charset 'utf-8';
+
+@use "../core/setting" as *;
+@use "../mixin/media-queries" as *;
+@use "../mixin/space-reset" as *;
+@use "../mixin/hover" as *;
+
+.sidenav {
+  $_this: &;
+
+  &__hdg {
+    display: block;
+    border-bottom: 2px solid $color-main-red;
+
+    &-link {
+      display: block;
+      font-size: 2rem;
+      color: $color-font-base;
+      font-weight: $font-weight-bold;
+      line-height: 1.2;
+      padding-bottom: 17px;
+      transition: opacity .2s;
+
+      @include hover() {
+        text-decoration: none;
+        opacity: .7;
+      }
+    }
+  }
+
+  &__item {
+    & > #{$_this}__list {
+      background-color: $color-gray-02;
+    }
+  }
+
+  [aria-current] {
+    & > #{$_this}__link-txt {
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 3px;
+        height: 100%;
+        background-color: $color-main-red;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    & + #{$_this}__list {
+      #{$_this}__link {
+        &[aria-current] {
+          color: $color-main-red;
+
+          & > #{$_this}__link-txt {
+            &::before {
+              display: none;
+            }
+          }
+        }
+
+        & > #{$_this}__link-txt {
+          font-weight: $font-weight-light;
+        }
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 14px 36px 14px 15px;
+    color: $color-font-base;
+    font-weight: $font-weight-bold;
+    border-bottom: 1px solid $color-gray;
+    position: relative;
+    opacity: 1;
+    transition: opacity .2s;
+
+    @include hover() {
+      text-decoration: none;
+      opacity: .7;
+    }
+
+    & + #{$_this}__list & {
+      padding-left: 30px;
+    }
+  }
+
+  &__list {
+    #{$_this}__link + & {
+      overflow: hidden;
+      transition: height .2s;
+    }
+  }
+
+  &-dropdown {
+    &__btn{
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 16px;
+        height: 2px;
+        background-color: $color-gray;
+        right: 10px;
+        top: 50%;
+        bottom: 50%;
+        transform: translate(0, -50%);
+      }
+
+      &::after {
+        transform: translate(0, -50%) rotate(90deg);
+        transition: transform .2s;
+      }
+
+      &[aria-expanded="true"] {
+        &::after {
+          transform: translateY(-50%) rotate(180deg);
+        }
+      }
+    }
+
+    [aria-current="true"] {
+      &.sidenav-dropdown__hook {
+        &::after {
+          transform: translate(0, -50%);
+        }
+      }
+    }
+  }
+}

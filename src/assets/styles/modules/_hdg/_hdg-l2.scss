@@ -1,0 +1,66 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/hover" as *;
+
+
+.hdg-l2 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+
+  &__inner {
+    padding-bottom: 11px;
+    border-bottom: 3px solid $color-main-red;
+    line-height: 1.25;
+    font-size: 2.4rem;
+    font-weight: $font-weight-bold;
+  }
+
+  &__link {
+    color: $color-font-base;
+    position: relative;
+    display: inline;
+    transition: opacity .2s;
+    padding-right: 30px;
+
+    // リンクアイコン
+
+    &::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      bottom: .8rem;
+      background-image: url("/assets/image/ico-arrow.svg");
+      transform: translate(10px, 0);
+      transition: transform .2s;
+    }
+
+    @include hover {
+      color: $color-font-base;
+      text-decoration: none;
+      opacity: .7;
+
+      &::after {
+        transform: translate(13px, 0);
+      }
+    }
+  }
+
+  @include rwd(pc) {
+    margin-top: 60px;
+
+    &__inner {
+      padding-bottom: 17px;
+      font-size: 3.2rem;
+    }
+
+    &__link {
+      &::after {
+        bottom: 1.2rem;
+      }
+    }
+  }
+}

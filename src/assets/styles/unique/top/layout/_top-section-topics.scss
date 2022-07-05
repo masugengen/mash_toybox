@@ -1,0 +1,26 @@
+@charset 'utf-8';
+
+@use "../../../core/setting" as *;
+@use "../../../mixin/media-queries" as *;
+@use "../../../mixin/space-reset" as *;
+@use "../../../mixin/hover" as *;
+
+.top-section-topics {
+  background-image: url("/img/index-bg-02.png");
+  background-position: center;
+  background-size: cover;
+
+  &__inner {
+    padding: 63px 15px 60px;
+
+    @include space-reset;
+  }
+
+  @include rwd(pc) {
+    &__inner {
+      max-width: $content-width;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}

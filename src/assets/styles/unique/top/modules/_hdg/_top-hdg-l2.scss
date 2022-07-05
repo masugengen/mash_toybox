@@ -1,0 +1,60 @@
+@charset 'utf-8';
+
+@use "../../../../core/setting" as *;
+@use "../../../../mixin/media-queries" as *;
+@use "../../../../mixin/space-reset" as *;
+@use "../../../../mixin/hover" as *;
+
+.top-hdg-l2 {
+  $_this: &;
+
+  margin-bottom: 44px;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 15px;
+  }
+
+  &__txt {
+    &-sub,
+    &-main {
+      line-height: 1.2;
+    }
+
+    &-sub {
+      font-size: 1.6rem;
+      color: $color-main-red;
+      font-family: $font-family-en;
+    }
+
+    &-main {
+      font-size: 3.4rem;
+      color: #000;
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  &--type02 {
+    margin-bottom: 60px;
+
+    #{$_this}__txt {
+      &-main {
+        color: $color-white;
+      }
+    }
+  }
+
+  @include rwd(pc) {
+    &__txt {
+      &-sub {
+        font-size: 1.8rem;
+      }
+
+      &-main {
+        font-size: 4.4rem;
+      }
+    }
+  }
+}

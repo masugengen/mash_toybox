@@ -1,0 +1,71 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+@use "../../mixin/hover" as *;
+
+.breadcrumb {
+  $_this: &;
+
+  display: none;
+
+  @include rwd(pc){
+    display: block;
+    background-color: $color-gray-02;
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: $content-width;
+      width: 100%;
+      margin: 0 auto;
+      padding: 7px 15px 9px;
+    }
+
+    &__link {
+      position: relative;
+      font-size: 1.4rem;
+      color: $color-font-link;
+      font-weight: $font-weight-light;
+
+      &[aria-current="page"] {
+        text-decoration: none;
+        color: $color-font-base;
+        font-weight: $font-weight-normal;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-top: 2px solid $color-darkgray;
+        border-right: 2px solid $color-darkgray;
+        top: 50%;
+        bottom: 52%;
+        right: -17px;
+        transform: translate(0, -50%) rotate(45deg);
+      }
+
+      @include hover() {
+        text-decoration: none;
+      }
+    }
+
+    &__item {
+      padding-right: 26px;
+
+      &:last-child {
+        padding-right: 0;
+
+        #{$_this}__link {
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

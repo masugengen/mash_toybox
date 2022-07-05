@@ -1,0 +1,20 @@
+# Develop
+node_modules
+
+# Test
+coverage
+
+# Production
+public/
+
+# Editor
+.vscode
+*.sublime-project
+*.sublime-workspace
+.idea
+
+# Others
+.DS_Store
+*.bak
+*.log
+Thumbs.db

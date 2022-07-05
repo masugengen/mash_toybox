@@ -1,0 +1,104 @@
+@charset 'utf-8';
+
+@use "../../../../core/setting" as *;
+@use "../../../../mixin/media-queries" as *;
+@use "../../../../mixin/space-reset" as *;
+@use "../../../../mixin/hover" as *;
+
+.top-link-panel-list {
+  $_this: &;
+
+  position: relative;
+  z-index: 1;
+  margin-bottom: 30px;
+
+  &__list {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    max-width: calc((100% - 18px) / 2);
+    width: 100%;
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: column-reverse;
+    row-gap: 10px;
+
+    @include hover() {
+      text-decoration: none;
+
+      #{$_this}__head {
+        color: $color-font-link;
+
+        &::before {
+          left: 3px;
+        }
+      }
+
+      #{$_this}__body {
+        opacity: .7;
+      }
+    }
+  }
+
+  &__head {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    font-weight: $font-weight-normal;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    padding-left: 22px;
+    transition: color .2s;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      top: 50%;
+      left: 0;
+      bottom: 50%;
+      background-image: url("/assets/image/ico-arrow.svg");
+      background-size: cover;
+      transform: translateY(-50%);
+      transition: left .2s;
+    }
+  }
+
+  &__body {
+    transition: opacity .2s;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  @include rwd(pc) {
+    margin-bottom: 35px;
+
+    &__list {
+      flex-wrap: nowrap;
+    }
+
+    &__item {
+      max-width: initial;
+    }
+
+    &__head {
+      font-size: 1.8rem;
+      padding-left: 24px;
+
+      &::before {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/space-reset" as *;
+
+.grid {
+  $_this: &;
+
+  margin-bottom: 20px;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px 23px;
+
+    #{$_this}[data-col-narrow="2"] & {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__content {
+    @include space-reset;
+  }
+
+  @include rwd(pc) {
+    margin-bottom: 30px;
+
+    &__inner {
+      gap: 30px;
+
+      $_min-col: 2;
+      $_max-col: 4;
+
+      @for $i from $_min-col through $_max-col {
+        #{$_this}[data-col-wide="#{$i}"] & {
+          grid-template-columns: repeat($i, 1fr);
+        }
+      }
+    }
+  }
+}

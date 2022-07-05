@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+//* ----------------------------------------------------------------
+//    Color
+//----------------------------------------------------------------- *
+
+$color-font-base: #333; // 通常文字色
+$color-font-base02: #1C1C1C; // 補助用文字色
+$color-font-link: #367EB3; // 通常リンク文字色
+$color-red: #B8180E;
+$color-white: #ffffff;
+$color-gray: #D3D3D4;
+$color-gray-02: #F7F6F6;
+$color-gray-03: #EEEEEE;
+$color-darkgray: #7D7D7D;
+$color-main-red: #F00000;
+$color-main-red-02: #E30000;
+$color-transparent: rgba(0, 0, 0, 0);
+$color-gradation: linear-gradient(90deg,#0B57A7, #3892D3, #61C7FB);
+
+
+// TODO 以下はまだ使うか不明なので、いらなければ削除
+$color-sample: #FFEC00;
+
+//* ----------------------------------------------------------------
+//    Font
+//----------------------------------------------------------------- *
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Roboto"), url("/assets/fonts/Roboto-Bold.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Japanese";
+  font-style: normal;
+  font-weight: 900;
+  src: local("Noto Sans Japanese"), url("/assets/fonts/NotoSansJP-Bold.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Japanese";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Noto Sans Japanese"), url("/assets/fonts/NotoSansJP-Medium.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+    font-family: "Noto Sans Japanese";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Noto Sans Japanese"), url("/assets/fonts/NotoSansJP-Regular.woff") format("woff");
+    font-display: swap;
+}
+
+$HiraginoKakuGo: "Hiragino Kaku Gothic ProN";
+$Meiryo: "Meiryo";
+$NotoSansCJKjp: "Noto Sans Japanese";
+$MSPGothic: "ＭＳ Ｐゴシック";
+$Roboto: "Roboto";
+$font-family: $NotoSansCJKjp, $HiraginoKakuGo, $Meiryo, $MSPGothic, sans-serif;
+$font-family-en: $Roboto, $HiraginoKakuGo, $Meiryo, $MSPGothic, sans-serif;
+$font-size: 1.6rem;
+$font-size-sp: 1.6rem;
+$line-height: 1.6;
+$font-weight-bold: 900;
+$font-weight-normal: 700;
+$font-weight-light: 400;
+
+//* ----------------------------------------------------------------
+//    Media Queries
+//----------------------------------------------------------------- *
+
+$mq-width-s: 767px; // SP幅
+$mq-width-m: 1024px; // Tablet幅
+
+//* ----------------------------------------------------------------
+//    Width
+//----------------------------------------------------------------- *
+
+$content-width-wide: 1330px;
+$content-width: 1230px;
+$content-width-min: 1064px;
+
+$content-width-single-inner: 1200px;
+$content-width-double-inner: calc($content-width-single-inner - 300px);
+
+$content-width-wide-sp: 100%;
+$content-width-sp: calc(100% - 40px);
+
+//* ----------------------------------------------------------------
+//    Heihgt
+//----------------------------------------------------------------- *
+
+$header-height: 70px;
+$header-height-sp: 60px;

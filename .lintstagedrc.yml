@@ -1,0 +1,4 @@
+'./src/assets/scripts/**/*.ts':
+    - npm run lint:js
+'./src/assets/styles/**/*.scss':
+    - npm run lint:sass

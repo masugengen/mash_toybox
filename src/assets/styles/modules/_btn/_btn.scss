@@ -1,0 +1,130 @@
+@charset 'utf-8';
+
+@use "../../core/setting" as *;
+@use "../../mixin/media-queries" as *;
+@use "../../mixin/hover" as *;
+
+.btn {
+  $_this: &;
+
+  margin-bottom: 20px;
+  text-align: center;
+
+  &__btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+    padding: 10px 20px;
+    background-color: $color-main-red;
+    border-radius: 50vh;
+    border: 1px solid $color-main-red;
+    transition: background-color .2s;
+
+    @include hover {
+      text-decoration: none;
+      background-color: $color-white;
+      border-color: $color-main-red;
+
+      #{$_this}__txt {
+        color: $color-main-red;
+      }
+    }
+  }
+
+  &__txt {
+    color: $color-white;
+    line-height: 1.25;
+    transition: color .2s;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+
+    #{$_this}.btn--icon & {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__icon-path {
+    fill: $color-white;
+    transition: fill .2s;
+  }
+
+  &.btn--color-02 {
+    #{$_this}__btn {
+      background-color: $color-white;
+      border-color: $color-gray;
+
+      @include hover {
+        background-color: $color-main-red;
+
+        #{$_this}__txt {
+          color: $color-white;
+        }
+      }
+    }
+
+    #{$_this}__txt {
+      color: $color-font-base;
+    }
+  }
+
+  &.btn--icon {
+    #{$_this}__btn {
+      padding-right: 40px;
+
+      @include hover {
+        #{$_this}__icon-path {
+          fill: $color-main-red;
+        }
+      }
+    }
+  }
+
+  &.btn--icon.btn--color-02 {
+    #{$_this}__btn {
+      @include hover {
+        #{$_this}__icon-path {
+          fill: $color-white;
+        }
+      }
+    }
+
+    #{$_this}__icon-path {
+      fill: $color-darkgray;
+    }
+  }
+
+  &.btn--disabled {
+    #{$_this}__btn {
+      background-color: $color-gray;
+      border: 1px solid  $color-gray;
+
+      @include hover {
+        #{$_this}__txt {
+          color: $color-white;
+        }
+      }
+    }
+  }
+
+  @include rwd(pc) {
+    &__btn {
+      width: 300px;
+    }
+
+    &.btn--variable {
+      #{$_this}__btn {
+        width: auto;
+        min-width: 300px;
+      }
+    }
+  }
+}
