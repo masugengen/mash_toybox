@@ -63,6 +63,9 @@ new Swiper('.top-carousel', {
       };
 
       autoplayBtn();
+    },
+    slideChangeTransitionEnd: {
+      
     }
   }
 });
