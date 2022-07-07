@@ -1,8 +1,8 @@
 {
-  "name": "mash-toybox",
-  "description": "コーディング環境",
-  "version": "2.0.0",
-  "author": "Mash",
+  "name": "kirin-group-logistics",
+  "description": "2022年度リニューアル。",
+  "version": "1.0.0",
+  "author": "Mitsue-Links Co.,Ltd.",
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
     "@mitsue/eslint-config": "^1.0.3",
@@ -102,7 +102,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/masugengen/mash_toybox"
+    "url": "https://gitlab.mitsue.com/kirinholdings/kirin-logistics.co.jp/kirin-logistics-renew"
   },
   "scripts": {
     "build": "npm run clean && npm run copy && run-s build:*",
@@ -133,5 +133,8 @@
     "watch:scss": "gulp && gulp watch",
     "watch:static": "node copyWatch.js",
     "watch:server": "browser-sync start --config bs-config.js"
+  },
+  "dependencies": {
+    "swiper": "^8.2.5"
   }
 }
