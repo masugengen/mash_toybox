@@ -9,7 +9,6 @@
 
 .header {
   position: relative;
-  border-top: 4px solid #F00000;
   border-bottom: 1px solid $color-gray;
   background-color: #fff;
   z-index: 150;
@@ -74,8 +73,7 @@
         display: grid;
         grid-template-columns: repeat(2, auto);
         grid-template-rows: repeat(2, auto);
-        row-gap: 3px;
-        align-items: flex-end;
+        align-items: flex-start;
         max-width: 1300px;
         margin-right: auto;
         margin-left: auto;
@@ -84,7 +82,7 @@
 
     &__head {
       flex-shrink: 0;
-      padding: 0 0 35px 0;
+      padding: 0;
       grid-row: 2 / 3;
       grid-column: 1 / 2;
     }
@@ -265,7 +263,7 @@
     &__list {
       @include js-enabled {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         height: 100%;
         column-gap: 10px;
 
@@ -302,7 +300,7 @@
 
     &__btn-inner {
       position: relative;
-      padding: 22px 0;
+      padding: 0 0 10px;
       transition: color .2s;
 
       &::before,
@@ -333,7 +331,7 @@
     }
 
     &__btn-txt {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       font-weight: $font-weight-normal;
 
       &::before {

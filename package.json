@@ -1,13 +1,10 @@
 {
-  "name": "kirin-group-logistics",
-  "description": "2022年度リニューアル。",
+  "name": "mash-asset",
+  "description": "mash-develop",
   "version": "1.0.0",
-  "author": "Mitsue-Links Co.,Ltd.",
+  "author": "Genki Masuda",
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
-    "@mitsue/eslint-config": "^1.0.3",
-    "@mitsue/eslint-config-es5": "^2.0.0",
-    "@mitsue/vlint": "^0.8.1",
     "@types/jest": "^27.0.3",
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
@@ -102,7 +99,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://gitlab.mitsue.com/kirinholdings/kirin-logistics.co.jp/kirin-logistics-renew"
+    "url": "https://github.com/masugengen/mash_toybox"
   },
   "scripts": {
     "build": "npm run clean && npm run copy && run-s build:*",
@@ -135,6 +132,7 @@
     "watch:server": "browser-sync start --config bs-config.js"
   },
   "dependencies": {
+    "@splidejs/splide": "^4.0.7",
     "swiper": "^8.2.5"
   }
 }

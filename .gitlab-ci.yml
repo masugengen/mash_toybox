@@ -8,13 +8,13 @@ variables:
   # **ここから：案件ごとに必ず設定してください**
   #
   # デモサイトの種類
-  # demo.mitsue.comの場合はmerlot
-  # site.mitsue.comの場合はaligote
+  # hoge.comの場合はmerlot
+  # huga.comの場合はaligote
   MLC_SYNC_HOST: merlot
   #
   # **↓↓↓↓↓重要：必ず確認↓↓↓↓↓**
-  # デモサイトの名前（xxx.demo.mitsue.comやxxx.site.mitsue.comのxxx）
-  MLC_SYNC_DOMAIN: kgl-corp-renew
+  # デモサイトの名前（xxx.hoge.comやxxx.huga.comのxxx）
+  MLC_SYNC_DOMAIN: ___dummy___
   # **↑↑↑↑↑重要：必ず確認↑↑↑↑↑**
   #
   # デモのルートディレクトリに対応するディレクトリ名
