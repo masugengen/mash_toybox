@@ -18,12 +18,73 @@ OGIMAGE: dummy.png
 <%- include (`/_layout/_header`) %>
 <!-- ======================== Header ======================== -->
 
+<!-- ======================== breadcrumb ======================== -->
+<nav class="breadcrumb" aria-label="現在のページ位置">
+<ol class="breadcrumb__list">
+<li class="breadcrumb__item"><a href="/" class="breadcrumb__link">トップ</a></li><!-- /.breadcrumb__item -->
+<li class="breadcrumb__item"><a href="/___dummy___/" class="breadcrumb__link">開発者環境サンプル</a></li><!-- /.breadcrumb__item -->
+<li class="breadcrumb__item"><a aria-current="page" class="breadcrumb__link">サンプル</a></li><!-- /.breadcrumb__item -->
+</ol><!-- /.breadcrumb__list -->
+</nav><!-- /.breadcrumb -->
+<!-- ======================== breadcrumb ======================== -->
+
 <!-- ======================== Contents ======================== -->
-<main class="main">
+<div class="content">
 
-<p>sample page</p>
+<main class="content__primary">
 
-</main><!-- /.main -->
+<p>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。</p>
+
+<div class="media-layout">
+
+<div class="media-layout__wrap" data-media-layout-wide="right" data-media-layout-narrow="bottom">
+<div class="media-layout__head">
+<div class="media-layout__content">
+<p>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。</p>
+</div><!-- /.media-layout__content -->
+</div><!-- /.media-layout__head -->
+
+<div class="media-layout__body">
+<div class="media-layout__media">
+<div class="media-layout__media-item">
+<img src="/assets/dummy/400x240.png" alt="" width="400" height="240">
+</div><!-- /.media-layout__media-item -->
+<p class="media-layout__media-caption">キャプション</p>
+</div><!-- /.media-layout__media -->
+</div><!-- /.media-layout__body -->
+</div><!-- /.media-layout__wrap -->
+
+<div class="media-layout__wrap" data-media-layout-wide="left" data-media-layout-narrow="bottom">
+<div class="media-layout__head">
+<div class="media-layout__content">
+<p>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。</p>
+</div><!-- /.media-layout__content -->
+</div><!-- /.media-layout__head -->
+
+<div class="media-layout__body">
+<div class="media-layout__media">
+<div class="media-layout__media-item">
+<img src="/assets/dummy/400x240.png" alt="" width="400" height="240">
+</div><!-- /.media-layout__media-item -->
+<p class="media-layout__media-caption">キャプション</p>
+</div><!-- /.media-layout__media -->
+</div><!-- /.media-layout__body -->
+</div><!-- /.media-layout__wrap -->
+
+</div><!-- /.media-layout -->
+
+</main><!-- /.content__primary -->
+
+<div class="content__secondary">
+
+<!-- ======================== aside ======================== -->
+
+<%- include (`/_sidenav/_sample`) %>
+
+<!-- ======================== aside ======================== -->
+
+</div><!-- /.content__secondary -->
+</div><!-- /.content -->
 <!-- ======================== Contents ======================== -->
 
 <!-- ======================== Footer ======================== -->

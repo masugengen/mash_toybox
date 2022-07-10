@@ -10,13 +10,13 @@
 
   display: flex;
 
-  &__btn {
+  &__item {
     width: 10px;
     height: 16px;
     overflow: hidden;
     position: relative;
 
-    &-txt {
+    #{$_this}__txt {
       position: absolute;
       left: -300vw;
     }
@@ -45,7 +45,7 @@
       transition: width .2s, height .2s, background-color .2s, border-style .2s;
     }
 
-    &.is-carousel-nowstop {
+    &-play {
       &::before {
         opacity: 0;
       }

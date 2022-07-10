@@ -5,8 +5,12 @@
 @use "../../../../mixin/space-reset" as *;
 @use "../../../../mixin/hover" as *;
 
-.top-carousel {
-  $_this: &;
-
-  position: relative;
+.top-carousel-progress {
+  height: 3px;
+  
+  &__bar {
+    height: 100%;
+    height: 3px;
+    background: $color-bg-black;
+  }
 }

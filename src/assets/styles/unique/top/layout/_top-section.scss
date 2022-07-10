@@ -5,11 +5,7 @@
 @use "../../../mixin/space-reset" as *;
 @use "../../../mixin/hover" as *;
 
-.top-section-topics {
-  background-image: url("/img/index-bg-02.png");
-  background-position: center;
-  background-size: cover;
-
+.top-section {
   &__inner {
     padding: 63px 15px 60px;
 

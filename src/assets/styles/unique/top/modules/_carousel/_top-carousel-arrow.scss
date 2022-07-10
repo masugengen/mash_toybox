@@ -5,8 +5,16 @@
 @use "../../../../mixin/space-reset" as *;
 @use "../../../../mixin/hover" as *;
 
-.top-carousel {
+.top-carousel-arrow {
   $_this: &;
 
-  position: relative;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  transform: translate(0, -50%);
+
+  &__item {
+    width: 30px;
+  }
 }
