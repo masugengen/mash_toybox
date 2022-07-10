@@ -18,6 +18,6 @@
 ## 関連URL
 
 - 本番サイト：<https://www.example>
-- MLC用DEMOサイト：<https://example/>
+- DEMOサイト：<https://example/>
     - モジュール一覧：<https://example/example/module/>
     - テンプレート：<https://example/example/templates/>
